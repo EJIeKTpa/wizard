@@ -10,8 +10,13 @@ public class Wizard {
 
 
     public void setHealth(int health) {
-
-        this.health = health;
+        if (health < 0) {
+            this.health = 0;
+        } else if (health > 100) {
+            this.health = 100;
+        } else {
+            this.health = health;
+        }
     }
 
     public int getHealth() {
@@ -20,8 +25,13 @@ public class Wizard {
     }
 
     public void setMana(int mana) {
-
-        this.mana = mana;
+        if (mana < 0) {
+            this.mana = 0;
+        } else if (mana > 100) {
+            this.mana = 100;
+        } else {
+            this.mana = mana;
+        }
     }
 
     public int getMana() {

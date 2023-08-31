@@ -10,6 +10,9 @@ public class EventProducer {
     private void healthPotion(Wizard wizard) {
         int health = wizard.getHealth();
         health += 20;
+        if (health > 100) {
+            health = 100;
+        }
         wizard.setHealth(health);
         System.out.println("Зелье здоровья: Волшебник находит зелье здоровья, которое восстанавливает его здоровье на 20 единиц.");
     }
@@ -17,7 +20,7 @@ public class EventProducer {
     private void meditation(Wizard wizard) {
         int mana = wizard.getMana();
         mana += 20;
-        if(mana > 100) {
+        if (mana > 100) {
             mana = 100;
         }
         wizard.setMana(mana);
@@ -43,9 +46,6 @@ public class EventProducer {
     private void magicCrystal(Wizard wizard) {
         int mana = wizard.getMana();
         mana += 15;
-        if(mana > 100) {
-            mana = 100;
-        }
         wizard.setMana(mana);
         System.out.println("Магический кристалл: Волшебник обнаружил магический кристалл, который увеличил его ману на 15 единиц.");
 
@@ -77,9 +77,6 @@ public class EventProducer {
     private void magicSource(Wizard wizard) {
         int mana = wizard.getMana();
         mana += 30;
-        if(mana > 100) {
-            mana = 100;
-        }
         wizard.setMana(mana);
         System.out.println("Магический источник: Волшебник обнаружил магический источник, который восстановил его ману на 30 единиц.");
 
@@ -88,9 +85,6 @@ public class EventProducer {
     private void manaPotion(Wizard wizard) {
         int mana = wizard.getMana();
         mana += 20;
-        if(mana > 100) {
-            mana = 100;
-        }
         wizard.setMana(mana);
         System.out.println("Зелье маны: Волшебник нашел зелье маны, которое восстановило его ману на 20 единиц.");
 
@@ -99,6 +93,7 @@ public class EventProducer {
     private void oldHealer(Wizard wizard) {
         int health = wizard.getHealth();
         health += 25;
+
         wizard.setHealth(health);
         System.out.println("Старый знахарь: Волшебник встретился со старым знахарем, который восстановил его здоровье на 25 единиц.");
 
@@ -147,8 +142,8 @@ public class EventProducer {
                 break;
         }
     }
+
     public boolean isAlive(Wizard wizard) {
-        // Если здоровье равно 0 - возвращаем false
 
         if (wizard.getHealth() <= 0) {
             return false;
@@ -160,7 +155,7 @@ public class EventProducer {
     public void live(Wizard wizard) {
         while (isAlive(wizard)) {
             randomEvent(wizard);
-            System.out.println("Здоровье: "+ wizard.getHealth() + ", Мана: " + wizard.getMana());
+            System.out.println("Здоровье: " + wizard.getHealth() + ", Мана: " + wizard.getMana());
         }
         System.out.println("Волшебник погиб.");
     }
