@@ -10,9 +10,6 @@ public class EventProducer {
     private void healthPotion(Wizard wizard) {
         int health = wizard.getHealth();
         health += 20;
-        if (health > 100) {
-            health = 100;
-        }
         wizard.setHealth(health);
         System.out.println("Зелье здоровья: Волшебник находит зелье здоровья, которое восстанавливает его здоровье на 20 единиц.");
     }
@@ -20,9 +17,6 @@ public class EventProducer {
     private void meditation(Wizard wizard) {
         int mana = wizard.getMana();
         mana += 20;
-        if (mana > 100) {
-            mana = 100;
-        }
         wizard.setMana(mana);
         System.out.println("Медитация: Волшебник медитирует, чтобы восстановить 20 единиц маны.");
 
